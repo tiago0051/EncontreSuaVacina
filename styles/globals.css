@@ -2,4 +2,27 @@ body {
     border: 0;
     padding: 0;
     margin: 0;
+    background: url("/background.png");
+    background-color: #216FAE;
+    background-blend-mode: soft-light;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+    background-color: #1A5686;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 25px;
+    font-style: normal;
+    border-radius: 10px;
+    color: white;
+}
+
+input::placeholder{
+    color: white;
+    opacity: 0.5;
+}
+
+input:focus{
+    outline: 0;
 }
