@@ -1,30 +1,42 @@
-import Head from 'next/head'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 
-export default function Home(props) {
+import styles from '../styles/Home.module.css'
+
+export default function Home() {
+  const router = useRouter();
+
+  const [cidade, setCidade] = useState('')
+  const [idade, setIdade] = useState('')
+
+  function submit(event) {
+    event.preventDefault()
+
+    router.push({
+      pathname: '/resultado',
+      query: { cidade: cidade, idade: idade }
+    })
+  }
 
   return (
-    <div>
-      <Head>
-        <title>Localize sua Vacina</title>
-        <meta name="description" content="Localize o ponto de distribuição mais proximo de você!" />
-      </Head>
-
-      <form>
-        <h2>Descubra o local ideal para tomar sua vacina!</h2>
-        <input type="text" placeholder="Digite a localização"/>
-        <input type="number" placeholder="Idade"/>
-        <button type="submit">Pesquisar</button>
-      </form>
+    <div className={styles.container}>
+      <main>
+        <h1 className={styles.title}>Descubra o local ideal para tomar sua vacina!</h1>
+        <form className={styles.formulario} onSubmit={submit}>
+          <select className={styles.select} value={cidade} onChange={(event) => setCidade(event.target.value)}>
+            <option value="">Selecione a cidade</option>
+            <option value="Duque de Caxias">Duque de Caxias</option>
+            <option value="Niterói">Niterói</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="São Gonçalo">São Gonçalo</option>
+            <option value="São João de Meriti">São João de Meriti</option>
+          </select>
+          <div>
+            <input type="number" placeholder= "Idade" onChange={(event) => setIdade(event.target.value)}/>
+            <button type="submit" className={styles.butões}>Pesquisar</button>
+          </div>
+        </form>
+      </main>
     </div>
   )
-}
-
-export const getStaticProps = async (ctx) => {
-
-  return{
-    props: {
-      teste: "a",
-      cidades: ["Duque de Caxias", "Cachoeiras de Macacu", "Rio de Janeiro"]
-    }
-  }
 }

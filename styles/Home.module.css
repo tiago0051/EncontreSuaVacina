@@ -1,0 +1,79 @@
+.container {
+    background-image: url("/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-color: rgba(20, 130, 255, 0.616);
+    background-blend-mode: soft-light;
+}
+
+.title {
+    font-size: 40px;
+    color: white;
+    width: 500px;
+    display: block;
+    font-weight: 500;
+}
+
+.formulario {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.formulario div {
+    width: 100%;
+}
+
+.formulario > div > input {
+    width: 49%;
+}
+
+.formulario button {
+    width: 49%;
+    margin-left: 2%;
+}
+
+.butões {
+    font-size: 1.2rem;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7b98b0;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.1s filter linear;
+}
+
+.butões:hover {
+    filter: brightness(1.2);
+}
+
+.resultado {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.resultado > div {
+    margin: 0 20px;
+    width: 35%;
+}
+
+.resultado > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+}
+
+.resultado > div:last-child{
+    height: 50vh;
+    background-color: #216fae;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
