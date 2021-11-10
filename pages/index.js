@@ -26,10 +26,6 @@ export default function Home() {
           <select className={styles.select} value={cidade} onChange={(event) => setCidade(event.target.value)}>
             <option value="">Selecione a cidade</option>
             <option value="Duque de Caxias">Duque de Caxias</option>
-            <option value="Niterói">Niterói</option>
-            <option value="Rio de Janeiro">Rio de Janeiro</option>
-            <option value="São Gonçalo">São Gonçalo</option>
-            <option value="São João de Meriti">São João de Meriti</option>
           </select>
           <div>
             <input type="number" placeholder= "Idade" onChange={(event) => setIdade(event.target.value)}/>

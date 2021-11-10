@@ -77,3 +77,8 @@
     padding: 10px;
     color: white;
 }
+
+.resultado > div:last-child > span {
+    display: block;
+    margin-bottom: 15px;
+}

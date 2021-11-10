@@ -1,31 +1,52 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {useRouter} from 'next/router';
+import Router from 'next/router'
 
 import styles from '../styles/Home.module.css';
 
-export default function () {
-    const router = useRouter();
+export default function resultado(props) {
 
     const [Cidade, setCidade] = useState("");
     const [Idade , setIdade] = useState(0);
+    const [Postos, setPostos] = useState([])
 
     useEffect(() => {
-        const {cidade, idade} = router.query;
+        const {cidade, idade, postos} = props;
         setCidade(cidade);
         setIdade(idade);
-    }, [router.query])
+        setPostos(postos)
+    }, [])
 
     return (
         <div className={styles.container}>
             <main className={styles.resultado}>
                 <div>                   
                     <h1 className={styles.title}>Resultado para a cidade de {Cidade} para {Idade} anos.</h1>
-                    <button onClick={() => router.push("/")} className={styles.butões}>Pesquisar Novamente</button>
+                    <button onClick={() => Router.push("/")} className={styles.butões}>Pesquisar Novamente</button>
                 </div>
                 <div>
-                    <span>Posto Duque: Rua Major Thomas Gonçalves, nº 5, Centro, Duque de Caxias, RJ</span>
+                    {
+                        Postos.map(posto => (
+                            <span>{posto}</span>
+                        ))
+                    }
                 </div>
             </main>
         </div>
     );
+}
+
+export async function getServerSideProps(ctx){
+    const {cidade, idade} = ctx.query
+
+    const data = await axios.post("http://localhost:3000/api/buscarCidade", {cidade, idade})
+
+    const postos = data.data.postos
+    return {
+        props: {
+            cidade,
+            idade,
+            postos
+        }
+    }
 }
