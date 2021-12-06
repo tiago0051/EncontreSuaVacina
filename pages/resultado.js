@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css';
 
 export default function resultado(props) {
 
-    const [Cidade, setCidade] = useState("");
+    const [Cidade, setCidade] = useState('');
     const [Idade , setIdade] = useState(0);
     const [Postos, setPostos] = useState([])
 
@@ -22,12 +22,12 @@ export default function resultado(props) {
             <main className={styles.resultado}>
                 <div>                   
                     <h1 className={styles.title}>Resultado para a cidade de {Cidade} para {Idade} anos.</h1>
-                    <button onClick={() => Router.push("/")} className={styles.butões}>Pesquisar Novamente</button>
+                    <button onClick={() => Router.push("/")} className={styles.botões}>Pesquisar Novamente</button>
                 </div>
                 <div>
                     {
                         Postos.map(posto => (
-                            <span>{posto}</span>
+                            <span key={posto}>{posto}</span>
                         ))
                     }
                 </div>

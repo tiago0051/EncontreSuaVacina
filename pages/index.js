@@ -26,10 +26,12 @@ export default function Home() {
           <select className={styles.select} value={cidade} onChange={(event) => setCidade(event.target.value)}>
             <option value="">Selecione a cidade</option>
             <option value="Duque de Caxias">Duque de Caxias</option>
+            <option value="São João de Meriti">São João de Meriti</option>
+            <option value="Nova Iguaçu">Nova Iguaçu</option>
           </select>
           <div>
             <input type="number" placeholder= "Idade" onChange={(event) => setIdade(event.target.value)}/>
-            <button type="submit" className={styles.butões}>Pesquisar</button>
+            <button type="submit" className={styles.botões}>Pesquisar</button>
           </div>
         </form>
       </main>
