@@ -37,11 +37,14 @@ export default function Resultado(props) {
 }
 
 export async function getServerSideProps(ctx){
+    const { origin } = absoluteUrl(ctx.req, "localhost:3000");
     const {cidade, idade} = ctx.query
 
-    const data = await axios.post("http://localhost:3000/api/buscarCidade", {cidade, idade})
+    //const data = await axios.post(origin + "/api/buscarCidade", {cidade, idade})
 
-    const postos = data.data.postos
+    //const postos = data.data.postos
+
+    postos = ["Posto 1", "Posto 2", "Posto 3"]
     return {
         props: {
             cidade,
