@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Router from 'next/router'
+import absoluteUrl from "next-absolute-url"
 
 import styles from '../styles/Home.module.css';
 
