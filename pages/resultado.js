@@ -4,7 +4,7 @@ import Router from 'next/router'
 
 import styles from '../styles/Home.module.css';
 
-export default function resultado(props) {
+export default function Resultado(props) {
 
     const [Cidade, setCidade] = useState('');
     const [Idade , setIdade] = useState(0);

@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
 
   const [cidade, setCidade] = useState('')
-  const [idade, setIdade] = useState('')
+  const [idade, setIdade] = useState('20')
 
   function submit(event) {
     event.preventDefault()
@@ -28,9 +28,10 @@ export default function Home() {
             <option value="Duque de Caxias">Duque de Caxias</option>
             <option value="São João de Meriti">São João de Meriti</option>
             <option value="Nova Iguaçu">Nova Iguaçu</option>
+            <option value="Nilopolis">Nilopolis</option>
           </select>
           <div>
-            <input type="number" placeholder= "Idade" onChange={(event) => setIdade(event.target.value)}/>
+            <input type="number" placeholder= "Idade" onChange={(event) => setIdade(event.target.value)} defaultValue={idade} disabled/>
             <button type="submit" className={styles.botões}>Pesquisar</button>
           </div>
         </form>
